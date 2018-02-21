@@ -1,9 +1,22 @@
 language: java
 jdk:
-  - openjdk8
+- openjdk8
 notifications:
   slack:
-    secure: "SBGW6W4uf2LBLr/WrGzH/p+nvrVVyjhvg40tEYuqNBs/kxHbGtk6tILtDMUbfx3uql2YuNP1qV4575ZPpTOP3oxJYsakBGXwV7mKPROqOFCKdPVDhyXfoBdLdEGLvHipjiGCgHTfwaa8ZhyHL6BVnRJd7SFQF3E/4hdG8OFtJ
-Zen0KdIoPfSv/00gpn4RayppifJuQ1PEh/OmorGYwztn4iWpLN74jK9yp7Nn+pDcz3hswT/Xoc3ODJt70rEiPCG6FaDjVSOrj50BkLT7PbeE2k8rDTH2IdudcXm/+NJ9GW/QuLzCKeTGM/BT0t3xOydOEIvzL85wBu90SDnD/7hfGwG6r1lA
-kXvGUzUHsQYHAKn74ERY2r6f+VqaeIwLuSgXIKsVnXtmSHrqDMJIcbygVjn1wBZfpEyATM6Q/lm5LbnojV4yrvrbH5cnbRbb9Uq9O0svW+2ByQ3lTflgOGcN1DZ+VhJMic7D8Q2r+fGUw2gB7jOaUyOaZ4NG8XUtZex0IimG0j7YOCL5nray
-5+cfxpEehU5w243DiO/gEnxuCEBlDiB/0pYVXuMTci32rqLmB5NIs6axXFLSqSYaHWnUgo7yx9SXzfWE/yIFj6m99z3sSo2dg9IgpMMT6nVfPXzRn9nA4AZrkmi/aqGJApy1cgzAmC87ykt0kDZ+K4MIOk="
+    secure: SBGW6W4uf2LBLr/WrGzH/p+nvrVVyjhvg40tEYuqNBs/kxHbGtk6tILtDMUbfx3uql2YuNP1qV4575ZPpTOP3oxJYsakBGXwV7mKPROqOFCKdPVDhyXfoBdLdEGLvHipjiGCgHTfwaa8ZhyHL6BVnRJd7SFQF3E/4hdG8OFtJ
+      Zen0KdIoPfSv/00gpn4RayppifJuQ1PEh/OmorGYwztn4iWpLN74jK9yp7Nn+pDcz3hswT/Xoc3ODJt70rEiPCG6FaDjVSOrj50BkLT7PbeE2k8rDTH2IdudcXm/+NJ9GW/QuLzCKeTGM/BT0t3xOydOEIvzL85wBu90SDnD/7hfGwG6r1lA
+      kXvGUzUHsQYHAKn74ERY2r6f+VqaeIwLuSgXIKsVnXtmSHrqDMJIcbygVjn1wBZfpEyATM6Q/lm5LbnojV4yrvrbH5cnbRbb9Uq9O0svW+2ByQ3lTflgOGcN1DZ+VhJMic7D8Q2r+fGUw2gB7jOaUyOaZ4NG8XUtZex0IimG0j7YOCL5nray
+      5+cfxpEehU5w243DiO/gEnxuCEBlDiB/0pYVXuMTci32rqLmB5NIs6axXFLSqSYaHWnUgo7yx9SXzfWE/yIFj6m99z3sSo2dg9IgpMMT6nVfPXzRn9nA4AZrkmi/aqGJApy1cgzAmC87ykt0kDZ+K4MIOk=
+deploy:
+  provider: releases
+  api_key:
+    secure: l3dh4XZOYWnk5YlhI7q6ZHhHroS3S9Cn3ocxDPECw7y8metG8fB1wr6QH1zhsaW7SrYtwIE/iRu9jz/zokDZQ+M9BgTgqQbs7JJ8kgEFRdoNgT/agLaPho2DVU1yBeYNvnOyKOuhKa6BIeUunxYIRCbRNHrqt0f8cH//VXsVCnIYV4nxAqVgCK3woGhej7D4jNWpjSHRz+UJJq8C+5TmfgHdk9Yz8aEjpIKCOM7lp+unCKmwVDeKlMyoCxTX8hvzQUJl4aeSSH6SZq8Ma/wnlXL/Fh28x28Gk7UBPW67/F79/KoqTlO5QLux7QbRJfcAaPxwzXoQfufJtQM06nrOhdT+KYPeRdFgnpwHdnQhqbCQLToAsHbDlVyTWhS9aqxyg0zvslJlRQzSASwbmw58ynRTrJP/QcGDZrnMLoBC9regJPWAIZHnOp1iHUC0/4aGo4FeQiBqcMpFXpB0QrGuB6iUo9QWU3BzULEpJt4XXPvkc4XzwOAbEAv7dsQZYGCdkKYIVgUuU8i1jo68SwPslz2L1gQZvUFV+9N6fXwI05iECZqESwz8y8c4DewOQuogNy1vcVbxQLrduFnB6SOw5PeZ6WArYHozajKW695sse11Gymli+v+pvKKME39Ftm5FP11ywtmOMyKBgv4TeFsNji+turGkjXIq5F82x8tAek=
+  skip_cleanup: true
+  file: target/$TRAVIS_TAG.jar
+  on:
+    repo: piyo-team-d1/pra2
+    all_branches: true
+    tags: true
+
+before_deploy:
+    - mvn -P fatjar clean package -DskipTests=true -Dproject.finalName=$TRAVIS_TAG
