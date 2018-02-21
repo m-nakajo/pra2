@@ -1,7 +1,6 @@
 language: java
 jdk:
 - openjdk8
-
 install: mvn install -DskipTests=true -Dgpg.skip=true
 before_deploy:
     - mvn -P fatjar clean package -DskipTests=true -Dproject.finalName=$TRAVIS_TAG
