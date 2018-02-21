@@ -11,3 +11,4 @@ https://medium.com/@chrispatten/installing-and-running-docker-on-32-bit-windows-
 +bios設定で
 　動くので後はコンテナイメージを作って…おしまい
 
+a
