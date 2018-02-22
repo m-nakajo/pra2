@@ -1,6 +1,15 @@
 # pra2
-コンテナ
+コンテナ君
 
+方針
+　１．人がソースコミットする
+　２．Travis がテストする
+  ３．Travis はソースをfat.jarにしてgitのリリースに突っ込む
+　４・人がfat.jarをコンテナに突っ込む
+　５・人がコンテナイメージを作成する
+ ６・他人がコンテナイメージを起動する
+ 
+ 
 参考：32bitでドッカー
 
 https://qiita.com/spesnova/items/038af6a8a4e401e3d2aa
