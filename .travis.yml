@@ -10,7 +10,7 @@ deploy:
     secure: l3dh4XZOYWnk5YlhI7q6ZHhHroS3S9Cn3ocxDPECw7y8metG8fB1wr6QH1zhsaW7SrYtwIE/iRu9jz/zokDZQ+M9BgTgqQbs7JJ8kgEFRdoNgT/agLaPho2DVU1yBeYNvnOyKOuhKa6BIeUunxYIRCbRNHrqt0f8cH//VXsVCnIYV4nxAqVgCK3woGhej7D4jNWpjSHRz+UJJq8C+5TmfgHdk9Yz8aEjpIKCOM7lp+unCKmwVDeKlMyoCxTX8hvzQUJl4aeSSH6SZq8Ma/wnlXL/Fh28x28Gk7UBPW67/F79/KoqTlO5QLux7QbRJfcAaPxwzXoQfufJtQM06nrOhdT+KYPeRdFgnpwHdnQhqbCQLToAsHbDlVyTWhS9aqxyg0zvslJlRQzSASwbmw58ynRTrJP/QcGDZrnMLoBC9regJPWAIZHnOp1iHUC0/4aGo4FeQiBqcMpFXpB0QrGuB6iUo9QWU3BzULEpJt4XXPvkc4XzwOAbEAv7dsQZYGCdkKYIVgUuU8i1jo68SwPslz2L1gQZvUFV+9N6fXwI05iECZqESwz8y8c4DewOQuogNy1vcVbxQLrduFnB6SOw5PeZ6WArYHozajKW695sse11Gymli+v+pvKKME39Ftm5FP11ywtmOMyKBgv4TeFsNji+turGkjXIq5F82x8tAek=
   file: target/$TRAVIS_TAG.jar
   skip_cleanup: true
-on:
+  on:
     repo: piyo-team-d1/pra2
     all_branches: true
     tags: true
